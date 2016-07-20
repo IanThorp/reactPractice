@@ -41,6 +41,7 @@ class App extends React.Component {
 				<Slider ref="blue" update={this.update} />
 				blue: {this.state.blue}
 				<br />
+				<IncrementButton value={3}/>
 			</div>
 		);
 	}
@@ -76,30 +77,19 @@ class IncrementButton extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			value = this.props.value;
+			value: 4
 		}
 	}
 	render(){
 		return(
-			<button onClick={this.increment}>{this.state.value}</button>
+			<div>
+				<button onClick={this.increment.bind(this)}>{this.state.value}</button>
+			</div>
 		)
 	}
 
-
-	increment = () => {
-
-	}
-
-	getDefaultProps(){
-		return {
-			value: 0
-		}
-	})
-
-	}
-
-	propTypes: {
-		value: React.PropTypes.number,
+	increment(){
+		this.setState({value: this.state.value + 1})
 	}
 }
 
